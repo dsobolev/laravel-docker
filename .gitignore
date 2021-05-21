@@ -1,0 +1,7 @@
+# Sublime related
+*.sublime-project
+*.sublime-workspace
+
+# Vim temporaries
+*~
+[._]*.un~
