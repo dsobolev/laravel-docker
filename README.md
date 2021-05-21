@@ -11,3 +11,7 @@ Only files that have some meaninful changes are here with the corresponding fold
 - nginx + php-fpm
 - PHP 7.3
 - Laravel 8
+
+## Configuration
+
+Based on [this tutorial](https://liquid.fish/current/creating-a-simple-laravel-docker-environment)
