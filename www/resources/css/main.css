@@ -1,0 +1,30 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer components {
+    .btn {
+        @apply border-2 rounded px-4 text-lg;
+    }
+
+    .btn:hover {
+        @apply text-xl;
+    }
+
+    .btn-green {
+        @apply border-green-800 bg-green-200;
+    }
+    .btn-green:hover {
+        @apply bg-green-500;
+    }
+}
+/*
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@import './parts/normalize.css';
+@import './parts/base.css';
+*/
