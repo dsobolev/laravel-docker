@@ -35,6 +35,8 @@ class PostsController extends Controller
      */
     public function create()
     {
+        $this->authorize('create-post');
+
         return view('posts.create', [
             'tags' => Tag::all()
          ]);
@@ -85,6 +87,8 @@ class PostsController extends Controller
     public function edit(Post $post/*int $id*/)
     {
         //$post = Post::findOrFail($id);
+        
+        $this->authorize('edit-post', $post);
 
         return view('posts.edit', compact('post'));
     }

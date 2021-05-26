@@ -13,7 +13,9 @@
 @endsection
 
 @section ('links')
-    <a href="/posts/create" class="ml-1">
-        Create New
-    </a>
+    @can ('create-post')
+        <a href="/posts/create" class="ml-1">
+            Create New
+        </a>
+    @endcan
 @endsection
