@@ -88,7 +88,7 @@ class PostsController extends Controller
     {
         //$post = Post::findOrFail($id);
         
-        $this->authorize('edit-post', $post);
+        $this->authorize('update', $post);
 
         return view('posts.edit', compact('post'));
     }
