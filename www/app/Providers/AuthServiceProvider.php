@@ -36,5 +36,12 @@ class AuthServiceProvider extends ServiceProvider
 
         //     return $post->user->is($user);
         // });
+
+        // Gate::before(function(User $user){
+        //     if ($user->isAdmin) {
+
+        //         return true;
+        //     }
+        // });
     }
 }
