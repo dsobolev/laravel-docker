@@ -26,6 +26,9 @@ use App\Http\Controllers\UserNotificationsController;
 //     return new App\Sample($dep, $sample_config);
 // });
 
+
+// auth()->loginUsingId(...id here ...);
+
 Route::get('/', function (App\Sample $sample) {
 
     $ctr = new App\Container;
