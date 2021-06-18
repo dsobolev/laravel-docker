@@ -43,5 +43,10 @@ class AuthServiceProvider extends ServiceProvider
         //         return true;
         //     }
         // });
+         
+        Gate::before(function(User $user, string $permission) {
+
+            return $user->getPermissionsName()->contains($permission);
+        });
     }
 }
