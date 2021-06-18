@@ -42,12 +42,23 @@ class User extends Authenticatable
     ];
 
     public function posts() {
-    
+
         return $this->hasMany(Post::class);
     }
 
     public function role() {
-    
+
         return $this->belongsTo(Role::class);
+    }
+
+    public function assignRole(Role $role) {
+
+        $this->role()->associate($role);
+        $this->save();
+    }
+
+    public function getPermissionsNames() {
+
+        return $this->role->permissions->pluck('name');
     }
 }
