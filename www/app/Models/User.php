@@ -61,4 +61,9 @@ class User extends Authenticatable
 
         return $this->role->permissions->pluck('name');
     }
+
+    public function permittedTo($permission)
+    {
+        return $this->getPermissionsNames()->contains($permission);
+    }
 }
