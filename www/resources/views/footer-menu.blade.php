@@ -48,6 +48,10 @@
             Payments
         </a>
 
+        @can('viewAny', App\Models\User::class)
+            <a href="/users" class="ml-1">Users</a>
+        @endcan
+
         @yield ('links')
 
     </div>

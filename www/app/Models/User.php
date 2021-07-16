@@ -57,9 +57,16 @@ class User extends Authenticatable
         $this->save();
     }
 
+    /**
+     * @return Illuminate\Support\Collection
+     *
+     * Returns empty array if role hasn't been assigned yet
+     */
     public function getPermissionsNames() {
 
-        return $this->role->permissions->pluck('name');
+        return is_null($this->role)
+            ? collect([])
+            : $this->role->permissions->pluck('name');
     }
 
     public function permittedTo($permission)

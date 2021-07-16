@@ -27,10 +27,10 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        Gate::define('create-post', function (User $user) {
+        // Gate::define('create-post', function (User $user) {
 
-            return true;
-        });
+        //     return true;
+        // });
 
         // Gate::define('edit-post', function (User $user, Post $post) {
 
@@ -44,9 +44,11 @@ class AuthServiceProvider extends ServiceProvider
         //     }
         // });
          
-        Gate::before(function(User $user, string $permission) {
+        // Gate::before(function(User $user, string $permission) {
 
-            return $user->getPermissionsName()->contains($permission);
-        });
+        //     return $user->getPermissionsNames()->contains($permission)
+        //         ? true
+        //         : null;
+        // });
     }
 }
