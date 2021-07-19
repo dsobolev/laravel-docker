@@ -103,4 +103,6 @@ Route::post('/contact', [ContactController::class, 'store']);
 
 Route::get('payments/create', [PaymentController::class, 'create'])->middleware('auth');
 Route::post('payments', [PaymentController::class, 'store'])->middleware('auth');
-Route::get('notifications', [UserNotificationsController::class, 'show'])->middleware('auth');
+Route::get('notifications', [UserNotificationsController::class, 'show'])
+    ->middleware(['auth', 'can:viewAny,user'])
+    ->name('users.notifications');

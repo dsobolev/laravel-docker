@@ -50,6 +50,7 @@
 
         @can('viewAny', App\Models\User::class)
             <a href="/users" class="ml-1">Users</a>
+            <a href="{{ route('users.notifications') }}" class="ml-1">Notifications</a>
         @endcan
 
         @yield ('links')
