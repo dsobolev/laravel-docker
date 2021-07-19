@@ -7,6 +7,7 @@ use App\Http\Controllers\PostsController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\UserNotificationsController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -103,6 +104,10 @@ Route::post('/contact', [ContactController::class, 'store']);
 
 Route::get('payments/create', [PaymentController::class, 'create'])->middleware('auth');
 Route::post('payments', [PaymentController::class, 'store'])->middleware('auth');
+
 Route::get('notifications', [UserNotificationsController::class, 'show'])
     ->middleware(['auth', 'can:viewAny,App\Models\User'])
     ->name('users.notifications');
+
+Route::get('/users', [UserController::class, 'index'])
+    ->middleware('can:viewAny,App\Models\User');
