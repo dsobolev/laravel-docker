@@ -83,4 +83,9 @@ class User extends Authenticatable
             ? collect([])
             : $this->role->permissions->pluck('name');
     }
+
+    public function getRoleLabel()
+    {
+        return $this->role->label ?? '';
+    }
 }
