@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Event;
 
 use App\Events\PaymentDone;
 use App\Listeners\AdditionalThanks;
+use App\Listeners\UserRegisteredNotification;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -20,6 +21,7 @@ class EventServiceProvider extends ServiceProvider
     protected $listen = [
         Registered::class => [
             SendEmailVerificationNotification::class,
+            UserRegisteredNotification::class,
         ],
         PaymentDone::class => [
             AdditionalThanks::class
