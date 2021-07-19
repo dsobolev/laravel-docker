@@ -13,7 +13,7 @@ class UserNotificationsController extends Controller
         $notifications = auth()->user()->unreadNotifications;
         // $notifications->markAsRead();
     
-        return view('payment.notify', [
+        return view('users.notifications', [
             //'notifications' => tap($notifications)->markAsRead()
             'notifications' => $notifications
         ]);
