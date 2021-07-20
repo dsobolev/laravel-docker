@@ -15,6 +15,7 @@
             @elseif ( 'App\Notifications\UserRegistered' === $item->type )
                 <li>
                     New user registered
+                    <a href="/users/{{ $item->data['userId'] }}">Edit</a>
                 </li>
             @endif
         @empty
