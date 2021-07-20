@@ -10,7 +10,7 @@
     @method('PUT')
 
     <label>Role</label>
-    <select>
+    <select name="role">
         @foreach ($roles as $role)
             <option
                 value="{{ $role['value'] }}"
@@ -19,8 +19,9 @@
                 {{ $role['label'] }}
             </option>
         @endforeach
-        <!-- $user->role->name; -->
     </select>
+
+    <button type="submit" class="btn btn-green">Update</button>
 </form>
 
 <section>

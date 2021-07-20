@@ -115,3 +115,7 @@ Route::get('/users', [UserController::class, 'index'])
 Route::get('users/{user}', [UserController::class, 'edit'])
     ->middleware('can:update,App\Models\User')
     ->name('users.edit');
+
+Route::put('users/{user}', [UserController::class, 'update'])
+    ->middleware('can:update,App\Models\User')
+    ->name('users.update');
