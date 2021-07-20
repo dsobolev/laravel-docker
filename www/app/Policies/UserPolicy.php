@@ -47,12 +47,11 @@ class UserPolicy
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\User  $User
      * @return mixed
      */
-    public function update(User $user, User $User)
+    public function update(User $user)
     {
-        //
+        return $user->permittedTo('edit_users');
     }
 
     /**
