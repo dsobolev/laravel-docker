@@ -83,31 +83,40 @@ Route::get('/freak-posts/{post}', function ($post) {
     return view('post', $resData);
 });
 
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Auth::routes();
+
+
 Route::get('posts', [PostsController::class, 'index'])->name('posts.index');
 Route::post('posts', [PostsController::class, 'store']);
 Route::get('posts/create', [PostsController::class, 'create']);
 Route::get('posts/{post}', [PostsController::class, 'show'])->name('posts.show');
 Route::get('posts/{post}/edit', [PostsController::class, 'edit'])->name('posts.edit');
 Route::put('posts/{post}', [PostsController::class, 'update']);
+Route::delete('posts/{post}', [PostsController::class. 'destroy'])
+    ->middleware('can:delete, post')
+    ->name('posts.delete');
+
 
 Route::get('pages/{page_id}', [PageController::class, 'index']);
 
-Route::get('tweets/{slug}', [TweetController::class, 'single']);
 
+Route::get('tweets/{slug}', [TweetController::class, 'single']);
 Route::get('tweets', [TweetController::class, 'all']);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Auth::routes();
 
 Route::get('/contact', [ContactController::class, 'show']);
 Route::post('/contact', [ContactController::class, 'store']);
 
+
 Route::get('payments/create', [PaymentController::class, 'create'])->middleware('auth');
 Route::post('payments', [PaymentController::class, 'store'])->middleware('auth');
+
 
 Route::get('notifications', [UserNotificationsController::class, 'show'])
     ->middleware(['auth', 'can:viewAny,App\Models\User'])
     ->name('users.notifications');
+
 
 Route::get('/users', [UserController::class, 'index'])
     ->middleware('can:viewAny,App\Models\User');

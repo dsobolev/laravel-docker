@@ -4,14 +4,23 @@
     <ul>
         @forelse ($posts as $post)
             <li class="flex justify-between">
-                <div name="info">
+                <div>
                     <a href="{{ route('posts.show', $post) }}">{{ $post->title }}</a>
                     <span>({{ $post->author->name }})</span>
                 </div>
-                <div name="buttons"></div>
-                @can('update', $post)
-                    <a href="{{ route('posts.edit', $post) }}">Edit</a>
-                @endcan
+                <div class="flex justify-center">
+                    @can('update', $post)
+                        <a class="btn" href="{{ route('posts.edit', $post) }}">Edit</a>
+                    @endcan
+
+                    @can('delete', $post)
+                        <form action="{{ route('posts.delete', $post) }}" method="post">
+                            <input class="btn" type="submit" value="Delete" />
+                            @method('delete')
+                            @csrf
+                        </form>
+                    @endcan
+                </div>
             </li>
         @empty
             <li>No related posts</li>
