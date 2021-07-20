@@ -111,3 +111,7 @@ Route::get('notifications', [UserNotificationsController::class, 'show'])
 
 Route::get('/users', [UserController::class, 'index'])
     ->middleware('can:viewAny,App\Models\User');
+
+Route::get('users/{user}', [UserController::class, 'edit'])
+    ->middleware('can:update,App\Models\User')
+    ->name('users.update');
