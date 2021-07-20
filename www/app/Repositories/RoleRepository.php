@@ -26,4 +26,9 @@ class RoleRepository
                 'value' => null
             ])->all();
     }
+
+    public function getRoleByName(string $roleName)
+    {
+        return Role::where('name', $roleName)->first();
+    }
 }
