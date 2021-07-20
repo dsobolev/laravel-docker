@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Models\Tag;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PostsController extends Controller
 {
@@ -53,9 +54,7 @@ class PostsController extends Controller
     {
         $this->validatedPost();
 
-        $post = new Post( request(['title', 'content']) );
-        $post->user_id = 1;
-        $post->save();
+        Auth::user()->posts()->create( request(['title', 'content']) );
 
         if ( request()->has('tags') ) {
             $post->tags()->attach( request('tags') );
@@ -104,6 +103,7 @@ class PostsController extends Controller
     public function update(Request $request, Post $post)
     {
         $post->update( $this->validatedPost() );
+
         // $post->title = request('title');
         // $post->content = request('content');
 
