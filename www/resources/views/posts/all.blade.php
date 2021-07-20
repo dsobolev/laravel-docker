@@ -13,7 +13,7 @@
 @endsection
 
 @section ('links')
-    @can ('create-post')
+    @can ('create', App\Models\Post::class)
         <a href="/posts/create" class="ml-1">
             Create New
         </a>

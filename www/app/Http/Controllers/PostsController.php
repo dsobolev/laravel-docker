@@ -35,7 +35,8 @@ class PostsController extends Controller
      */
     public function create()
     {
-        $this->authorize('create-post');
+        //$this->authorize('create-post');
+        $this->authorize('create', Post::class);
 
         return view('posts.create', [
             'tags' => Tag::all()
