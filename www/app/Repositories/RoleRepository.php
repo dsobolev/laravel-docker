@@ -7,7 +7,7 @@ use App\Models\Role;
 class RoleRepository
 {    
     /**
-     * Returns list of associateive arrays in the form of:
+     * Returns list of associative arrays in the form of:
      *     [
      *         [ 'label' => role_label, 'value' => role_name ],
      *         ...
@@ -21,6 +21,9 @@ class RoleRepository
             return [ 'label' => $item->label, 'value' => $item->name ];
         });
 
-        return $values->all();
+        return $values->prepend([
+                'label' => '',
+                'value' => null
+            ])->all();
     }
 }
