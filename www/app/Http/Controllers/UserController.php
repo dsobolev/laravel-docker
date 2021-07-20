@@ -57,15 +57,4 @@ class UserController extends Controller
 
         return redirect('/users');
     }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(User $user)
-    {
-        //
-    }
 }
