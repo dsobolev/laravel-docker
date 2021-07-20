@@ -88,4 +88,9 @@ class User extends Authenticatable
     {
         return $this->role->label ?? '';
     }
+
+    public function getRoleName()
+    {
+        return $this->role->name ?? '';
+    }
 }

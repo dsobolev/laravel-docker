@@ -2,11 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use Illuminate\Http\Request;
+use App\Models\User;
+use App\Repositories\RoleRepository;
 
 class UserController extends Controller
 {
+    function __construct(RoleRepository $roleRepo)
+    {
+        $this->roleRepo = $roleRepo;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -27,9 +33,13 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
+        $rolesHTMLValues = $this->roleRepo->getRolesForHTMLSelect();
+
         return view('users.edit', [
             'user' => $user,
-            'permissions' => $user->getPermissionsLabels()
+            'permissions' => $user->getPermissionsLabels(),
+            'roles' => $rolesHTMLValues,
+            'userRole' => $user->getRoleName()
         ]);
     }
 
