@@ -42,7 +42,7 @@ class PostPolicy
      */
     public function delete(User $user, Post $post)
     {
-        //
+        return $post->author->is($user) || $user->permittedTo('delete_posts');
     }
 
     /**
@@ -66,6 +66,6 @@ class PostPolicy
      */
     public function forceDelete(User $user, Post $post)
     {
-        //
+        //return $post->author->is($user) || $user->permittedTo('delete_posts');
     }
 }
