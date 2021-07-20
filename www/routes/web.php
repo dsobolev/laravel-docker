@@ -114,4 +114,4 @@ Route::get('/users', [UserController::class, 'index'])
 
 Route::get('users/{user}', [UserController::class, 'edit'])
     ->middleware('can:update,App\Models\User')
-    ->name('users.update');
+    ->name('users.edit');
