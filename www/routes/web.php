@@ -93,8 +93,8 @@ Route::get('posts/create', [PostsController::class, 'create']);
 Route::get('posts/{post}', [PostsController::class, 'show'])->name('posts.show');
 Route::get('posts/{post}/edit', [PostsController::class, 'edit'])->name('posts.edit');
 Route::put('posts/{post}', [PostsController::class, 'update']);
-Route::delete('posts/{post}', [PostsController::class. 'destroy'])
-    ->middleware('can:delete, post')
+Route::delete('posts/{post}', [PostsController::class, 'destroy'])
+    ->middleware('can:delete,post')
     ->name('posts.delete');
 
 
