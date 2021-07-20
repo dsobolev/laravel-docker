@@ -3,8 +3,15 @@
 @section ('content')
     <ul>
         @forelse ($posts as $post)
-            <li>
-                <a href="{{ route('posts.show', $post) }}">{{ $post->title }}</a>
+            <li class="flex justify-between">
+                <div name="info">
+                    <a href="{{ route('posts.show', $post) }}">{{ $post->title }}</a>
+                    <span>({{ $post->author->name }})</span>
+                </div>
+                <div name="buttons"></div>
+                @can('update', $post)
+                    <a href="{{ route('posts.edit', $post) }}">Edit</a>
+                @endcan
             </li>
         @empty
             <li>No related posts</li>

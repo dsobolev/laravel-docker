@@ -87,7 +87,7 @@ Route::get('posts', [PostsController::class, 'index'])->name('posts.index');
 Route::post('posts', [PostsController::class, 'store']);
 Route::get('posts/create', [PostsController::class, 'create']);
 Route::get('posts/{post}', [PostsController::class, 'show'])->name('posts.show');
-Route::get('posts/{post}/edit', [PostsController::class, 'edit']);
+Route::get('posts/{post}/edit', [PostsController::class, 'edit'])->name('posts.edit');
 Route::put('posts/{post}', [PostsController::class, 'update']);
 
 Route::get('pages/{page_id}', [PageController::class, 'index']);

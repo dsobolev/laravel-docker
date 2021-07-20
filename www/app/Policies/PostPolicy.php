@@ -30,7 +30,7 @@ class PostPolicy
      */
     public function update(User $user, Post $post)
     {
-        return $post->user->is($user);
+        return $post->author->is($user) || $user->permittedTo('edit_posts');
     }
 
     /**
